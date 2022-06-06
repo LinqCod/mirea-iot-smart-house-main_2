@@ -4,7 +4,9 @@ import json
 import time
 from threading import Thread
 
-
+def a(*args):
+    print("hui")
+    pass
 
 class MQTTClient:
     def __init__(self, name, room):
@@ -75,11 +77,17 @@ class MQTTClient:
         except:
             msg_data = str(decoded_message)
 
+        if (msg.topic == self.topic and 'disconnect' in msg_data):
+            self.message_handler = a
+            return None
+
+
         if msg.topic == self.topic and 'cmd' in msg_data:
             self.message_handler(msg_data)
         elif 'annonce' == msg_data:
             self.data['return'] = 'annonce'
             self.mqtt.publish(self.home_topic, json.dumps(self.data))
+
     
     def message_handler(self, message):
         print(message)

@@ -432,9 +432,13 @@ a {
 .turn_on {
   width: fit-content;
   /*fill: #030104;*/
-  fill: white;
+  fill: green;
   /*-webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));*/
   /*filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));*/
+}
+
+.setColorRed {
+  fill: red;
 }
 /* 
 .turn_on>svg{

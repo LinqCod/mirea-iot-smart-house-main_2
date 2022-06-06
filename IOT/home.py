@@ -1,5 +1,6 @@
 from devices import Lamp, TV, Teapot, CoffeeMachine, Humidifier, Conditioner, Music
-
+from rich.traceback import install
+install(show_locals = True)
 from threading import Thread
 
 lmp1 = Lamp('Lamp1', 'Гостиная')

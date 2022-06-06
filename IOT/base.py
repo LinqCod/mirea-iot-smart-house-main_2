@@ -59,7 +59,5 @@ class device():
 class home():
     pass
 
-class room()
-
 a = device('home1', 'room4', 'dev1')
 
