@@ -170,8 +170,10 @@ function displayDevices(room) {
                         })
                     });
 
-    document.querySelectorAll('delete').forEach(item => {
+    document.querySelectorAll('.delete').forEach(item => {
                     item.addEventListener('click', event => {
+                        console.log(item.parentElement.parentElement.parentElement);
+                        item.parentElement.parentElement.parentElement.setAttribute("display", "none");
                         deleteDevice(item.classList[1]);
                     });
     });
@@ -290,7 +292,7 @@ $('.form_1').submit(function(event) {
                         return obj.name === lastDeletedDevice;
                     });
                     var index = roomsAndDevices.get(currentRoom).indexOf(toFind);
-                    roomsAndDevices.pop(currentRoom)[index];
+                    roomsAndDevices.get(currentRoom).splice(1,index);
                     displayDevices(currentRoom);
                 } else {
                     console.log('annonce command');
